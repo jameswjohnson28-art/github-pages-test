@@ -22,7 +22,7 @@ async function boot(){
   const title=document.getElementById('portalTitle');if(title)title.textContent=role==='owner'?'Command table':role==='team_lead'?'Lead operations':'Staff operations';
   const work=[loadClock(),loadDocuments()];
   if(role!=='staff')work.push(loadTeam());
-  if(role==='owner'){work.push(loadRoadmap(),loadRoster());setupUploader()}
+  if(role==='owner'){work.push(loadRoadmap(),loadRoster(),loadCommandDashboard());setupUploader()}
   await Promise.allSettled(work);
   const destination=location.hash.slice(1);
   window.showPage(document.getElementById(destination)?destination:'home');
@@ -32,6 +32,37 @@ async function boot(){
   document.getElementById('whoRole').textContent='Please return to the customer site and sign in again.';
  }
 }
+async function loadCommandDashboard(){
+ const stats=document.getElementById('companyStats'),council=document.getElementById('ownerCouncil');if(!stats||!council)return;
+ const [profiles,docs,entries,members]=await Promise.all([
+  supabase.from('profiles').select('id,role',{count:'exact',head:true}),
+  supabase.from('documents').select('id',{count:'exact',head:true}),
+  supabase.from('time_entries').select('id',{count:'exact',head:true}),
+  supabase.from('owner_council').select('*').order('created_at')
+ ]);
+ const staffCount=profiles.count||0,docCount=docs.count||0,shiftCount=entries.count||0;
+ stats.innerHTML='<div class="panel metric"><strong>'+staffCount+'</strong><span>Guild accounts</span></div><div class="panel metric"><strong>'+shiftCount+'</strong><span>Tracked shifts</span></div><div class="panel metric"><strong>'+docCount+'</strong><span>Documents shared</span></div>';
+ const cards=(members.data||[]).map(member=>'<div class="panel"><div class="eyebrow">'+escapeHtml(member.title||'Owner')+'</div><h2 style="margin-top:8px">'+escapeHtml(member.name)+'</h2><p class="sub">'+escapeHtml(member.focus||'Guildhall leadership')+'</p><p class="sub" style="font-size:.9rem">'+escapeHtml(member.bio||'Add a short introduction for this owner.')+'</p><button class="btn alt" data-council="'+member.id+'">Edit profile</button></div>').join('');
+ council.innerHTML=cards||'<div class="empty">No council profiles yet. Add the first owner.</div>';
+ council.querySelectorAll('[data-council]').forEach(button=>button.addEventListener('click',()=>editCouncilMember((members.data||[]).find(member=>member.id===button.dataset.council))));
+}
+window.addCouncilMember=async()=>{
+ const name=prompt('Owner name:');if(!name)return;
+ const title=prompt('Title or role:','Owner')||'Owner';
+ const focus=prompt('Primary focus (for example: Events & Community):')||'Guildhall leadership';
+ const bio=prompt('Short owner introduction:')||'';
+ const {error}=await supabase.from('owner_council').insert({name,title,focus,bio});
+ if(error)alert(error.message);else await loadCommandDashboard();
+};
+async function editCouncilMember(member){
+ const name=prompt('Owner name:',member.name);if(!name)return;
+ const title=prompt('Title or role:',member.title||'Owner')||'Owner';
+ const focus=prompt('Primary focus:',member.focus||'')||'';
+ const bio=prompt('Short owner introduction:',member.bio||'')||'';
+ const {error}=await supabase.from('owner_council').update({name,title,focus,bio}).eq('id',member.id);
+ if(error)alert(error.message);else await loadCommandDashboard();
+}
+
 async function loadClock(){
  const {data=[]}=await supabase.from('time_entries').select('*').eq('user_id',me.id).order('clock_in',{ascending:false});
  const open=data.find(entry=>!entry.clock_out);
