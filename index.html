@@ -3,19 +3,114 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Pages Test</title>
+  <title>Northstar — Business Planning</title>
+  <meta name="description" content="A focused business planning workspace for turning strategy into action.">
   <style>
-    :root { color-scheme: dark; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; font-family: system-ui, sans-serif; background: #0d1117; color: #e6edf3; }
-    main { text-align: center; padding: 3rem; }
-    h1 { font-size: clamp(2rem, 7vw, 4rem); margin: 0 0 .5rem; }
-    p { color: #8b949e; font-size: 1.1rem; }
+    :root {
+      --ink: #17231f;
+      --muted: #64736b;
+      --paper: #f6f7f2;
+      --white: #fffefa;
+      --lime: #d8f46b;
+      --orange: #f47b45;
+      --line: #dfe4dc;
+      --shadow: 0 20px 50px rgba(24, 36, 30, .09);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: auto; }
+    nav { height: 84px; display: flex; align-items: center; justify-content: space-between; }
+    .brand { font-weight: 800; letter-spacing: -.05em; font-size: 1.4rem; }
+    .brand i { display: inline-block; background: var(--lime); width: .65em; height: .65em; border-radius: 50%; margin-right: .25em; }
+    .nav-links { display: flex; gap: 28px; color: var(--muted); font-size: .9rem; }
+    .pill, .tag { border-radius: 99px; font-weight: 700; }
+    .pill { background: var(--ink); color: white; padding: 12px 18px; font-size: .88rem; }
+    header { padding: 68px 0 80px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: end; }
+    .eyebrow { color: var(--orange); font-weight: 800; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; }
+    h1 { font-size: clamp(3.35rem, 7vw, 6.5rem); letter-spacing: -.075em; line-height: .91; margin: 18px 0 26px; max-width: 720px; }
+    .lede { max-width: 470px; color: var(--muted); font-size: 1.13rem; line-height: 1.65; }
+    .hero-card { background: var(--ink); color: white; padding: 30px; border-radius: 24px; box-shadow: var(--shadow); transform: rotate(2deg); }
+    .hero-card small { color: #a7b8ae; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+    .hero-card h2 { font-size: 2rem; letter-spacing: -.05em; margin: 50px 0 10px; }
+    .bar { height: 9px; background: #34453e; border-radius: 99px; overflow: hidden; margin: 18px 0 10px; }
+    .bar span { display:block; width: 72%; height:100%; background: var(--lime); border-radius: inherit; }
+    .metrics { display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow: var(--shadow); }
+    .metric { background:var(--white); padding:30px; }
+    .metric strong { display:block; font-size:2.45rem; letter-spacing:-.07em; margin-bottom:5px; }
+    .metric span { color:var(--muted); font-size:.9rem; }
+    section { padding: 92px 0; }
+    .section-head { display:flex; justify-content:space-between; gap:30px; align-items:end; margin-bottom:30px; }
+    h2 { font-size:clamp(2.15rem,4vw,3.7rem); letter-spacing:-.065em; line-height:.98; margin:0; }
+    .section-head p { color:var(--muted); max-width:330px; line-height:1.55; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { border:1px solid var(--line); background:var(--white); padding:26px; border-radius:18px; min-height:220px; }
+    .num { color:var(--orange); font-weight:800; }
+    .card h3 { font-size:1.25rem; letter-spacing:-.04em; margin:38px 0 10px; }
+    .card p { color:var(--muted); line-height:1.55; font-size:.94rem; }
+    .roadmap { background:var(--lime); border-radius:24px; padding:42px; }
+    .roadmap-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:45px; }
+    .steps { display:grid; gap:0; margin-top:30px; }
+    .step { border-top:1px solid rgba(23,35,31,.25); padding:18px 0; display:flex; align-items:center; justify-content:space-between; font-weight:700; }
+    .step span { color:#45564d; font-size:.85rem; font-weight:600; }
+    footer { border-top:1px solid var(--line); padding:35px 0 50px; display:flex; justify-content:space-between; color:var(--muted); font-size:.85rem; }
+    @media (max-width:760px) { nav .nav-links{display:none} header,.roadmap-grid{grid-template-columns:1fr;gap:36px} header{padding-top:30px} .grid,.metrics{grid-template-columns:1fr} .section-head{display:block}.hero-card{transform:none}.wrap{width:min(100% - 28px,1160px)} }
   </style>
 </head>
 <body>
-  <main>
-    <h1>It works! 🎉</h1>
-    <p>This test site is hosted with GitHub Pages.</p>
+  <main class="wrap">
+    <nav>
+      <div class="brand"><i></i>northstar</div>
+      <div class="nav-links"><span>Strategy</span><span>Priorities</span><span>Roadmap</span></div>
+      <div class="pill">2026 Plan</div>
+    </nav>
+    <header>
+      <div>
+        <div class="eyebrow">Business planning, made actionable</div>
+        <h1>Make the next move your best one.</h1>
+        <p class="lede">A practical operating plan for aligning the team, choosing the work that matters, and building momentum quarter after quarter.</p>
+      </div>
+      <aside class="hero-card">
+        <small>Annual focus</small>
+        <h2>Build a business people choose.</h2>
+        <div class="bar"><span></span></div>
+        <small>72% of strategic initiatives mapped</small>
+      </aside>
+    </header>
+    <div class="metrics">
+      <div class="metric"><strong>03</strong><span>Company priorities</span></div>
+      <div class="metric"><strong>12</strong><span>Quarterly initiatives</span></div>
+      <div class="metric"><strong>48</strong><span>Measurable outcomes</span></div>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <h2>Our strategic<br>anchors.</h2>
+        <p>Three clear choices keep the plan focused—so every team can move with confidence.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="num">01 / CUSTOMER</div><h3>Earn durable loyalty</h3><p>Make every interaction simpler, more useful, and worth coming back for.</p></article>
+        <article class="card"><div class="num">02 / PRODUCT</div><h3>Deliver obvious value</h3><p>Concentrate investment where it creates a meaningful customer advantage.</p></article>
+        <article class="card"><div class="num">03 / OPERATIONS</div><h3>Scale with intention</h3><p>Build a fast, resilient operating model that gives great work room to grow.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="roadmap">
+        <div class="roadmap-grid">
+          <div>
+            <div class="eyebrow" style="color:#45564d">90-day roadmap</div>
+            <h2 style="margin-top:16px">From ambition<br>to traction.</h2>
+          </div>
+          <div class="steps">
+            <div class="step">Align on the few big bets <span>Weeks 1–2</span></div>
+            <div class="step">Set owners and outcomes <span>Weeks 3–4</span></div>
+            <div class="step">Launch the first initiatives <span>Weeks 5–8</span></div>
+            <div class="step">Review, learn, and reset <span>Weeks 9–12</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer><span>Northstar Business Plan</span><span>Built for focus · 2026</span></footer>
   </main>
 </body>
 </html>
