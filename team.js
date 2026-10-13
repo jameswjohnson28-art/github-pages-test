@@ -22,7 +22,7 @@ async function boot(){
   const title=document.getElementById('portalTitle');if(title)title.textContent=role==='owner'?'Command table':role==='team_lead'?'Lead operations':'Staff operations';
   const work=[loadClock(),loadDocuments()];
   if(role!=='staff')work.push(loadTeam());
-  if(role==='owner')work.push(loadRoadmap(),loadRoster());
+  if(role==='owner'){work.push(loadRoadmap(),loadRoster());setupUploader()}
   await Promise.allSettled(work);
   const destination=location.hash.slice(1);
   window.showPage(document.getElementById(destination)?destination:'home');
@@ -74,6 +74,22 @@ function openTimeEditor(entry){
   modal.remove();await loadTeam();
  };
 }
+function setupUploader(){
+ const input=document.getElementById('documentUpload');if(!input)return;
+ input.addEventListener('change',async()=>{
+  const file=input.files?.[0];if(!file)return;
+  if(file.size>15*1024*1024){alert('Please keep documents under 15 MB.');input.value='';return}
+  const safeName=file.name.replace(/[^a-zA-Z0-9._-]/g,'_');
+  const path=me.id+'/'+Date.now()+'-'+safeName;
+  const {error:uploadError}=await supabase.storage.from('guild-documents').upload(path,file,{contentType:file.type,upsert:false});
+  if(uploadError){alert(uploadError.message);input.value='';return}
+  const {data:urlData}=supabase.storage.from('guild-documents').getPublicUrl(path);
+  const {error:recordError}=await supabase.from('documents').insert({title:file.name,url:urlData.publicUrl,category:'Uploaded document'});
+  if(recordError){alert(recordError.message);input.value='';return}
+  input.value='';await loadDocuments();alert('Document uploaded and shared with staff.');
+ });
+}
+
 async function loadRoster(){
  const target=document.getElementById('roster');if(!target)return;
  const {data=[]}=await supabase.from('profiles').select('id,email,username,display_name,role').order('created_at');
