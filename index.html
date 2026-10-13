@@ -1,116 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Northstar — Business Planning</title>
-  <meta name="description" content="A focused business planning workspace for turning strategy into action.">
-  <style>
-    :root {
-      --ink: #17231f;
-      --muted: #64736b;
-      --paper: #f6f7f2;
-      --white: #fffefa;
-      --lime: #d8f46b;
-      --orange: #f47b45;
-      --line: #dfe4dc;
-      --shadow: 0 20px 50px rgba(24, 36, 30, .09);
-    }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    .wrap { width: min(1160px, calc(100% - 40px)); margin: auto; }
-    nav { height: 84px; display: flex; align-items: center; justify-content: space-between; }
-    .brand { font-weight: 800; letter-spacing: -.05em; font-size: 1.4rem; }
-    .brand i { display: inline-block; background: var(--lime); width: .65em; height: .65em; border-radius: 50%; margin-right: .25em; }
-    .nav-links { display: flex; gap: 28px; color: var(--muted); font-size: .9rem; }
-    .pill, .tag { border-radius: 99px; font-weight: 700; }
-    .pill { background: var(--ink); color: white; padding: 12px 18px; font-size: .88rem; }
-    header { padding: 68px 0 80px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: end; }
-    .eyebrow { color: var(--orange); font-weight: 800; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; }
-    h1 { font-size: clamp(3.35rem, 7vw, 6.5rem); letter-spacing: -.075em; line-height: .91; margin: 18px 0 26px; max-width: 720px; }
-    .lede { max-width: 470px; color: var(--muted); font-size: 1.13rem; line-height: 1.65; }
-    .hero-card { background: var(--ink); color: white; padding: 30px; border-radius: 24px; box-shadow: var(--shadow); transform: rotate(2deg); }
-    .hero-card small { color: #a7b8ae; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
-    .hero-card h2 { font-size: 2rem; letter-spacing: -.05em; margin: 50px 0 10px; }
-    .bar { height: 9px; background: #34453e; border-radius: 99px; overflow: hidden; margin: 18px 0 10px; }
-    .bar span { display:block; width: 72%; height:100%; background: var(--lime); border-radius: inherit; }
-    .metrics { display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden; box-shadow: var(--shadow); }
-    .metric { background:var(--white); padding:30px; }
-    .metric strong { display:block; font-size:2.45rem; letter-spacing:-.07em; margin-bottom:5px; }
-    .metric span { color:var(--muted); font-size:.9rem; }
-    section { padding: 92px 0; }
-    .section-head { display:flex; justify-content:space-between; gap:30px; align-items:end; margin-bottom:30px; }
-    h2 { font-size:clamp(2.15rem,4vw,3.7rem); letter-spacing:-.065em; line-height:.98; margin:0; }
-    .section-head p { color:var(--muted); max-width:330px; line-height:1.55; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-    .card { border:1px solid var(--line); background:var(--white); padding:26px; border-radius:18px; min-height:220px; }
-    .num { color:var(--orange); font-weight:800; }
-    .card h3 { font-size:1.25rem; letter-spacing:-.04em; margin:38px 0 10px; }
-    .card p { color:var(--muted); line-height:1.55; font-size:.94rem; }
-    .roadmap { background:var(--lime); border-radius:24px; padding:42px; }
-    .roadmap-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:45px; }
-    .steps { display:grid; gap:0; margin-top:30px; }
-    .step { border-top:1px solid rgba(23,35,31,.25); padding:18px 0; display:flex; align-items:center; justify-content:space-between; font-weight:700; }
-    .step span { color:#45564d; font-size:.85rem; font-weight:600; }
-    footer { border-top:1px solid var(--line); padding:35px 0 50px; display:flex; justify-content:space-between; color:var(--muted); font-size:.85rem; }
-    @media (max-width:760px) { nav .nav-links{display:none} header,.roadmap-grid{grid-template-columns:1fr;gap:36px} header{padding-top:30px} .grid,.metrics{grid-template-columns:1fr} .section-head{display:block}.hero-card{transform:none}.wrap{width:min(100% - 28px,1160px)} }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guildhall — Staff Portal</title>
+<style>
+:root{--ink:#17231f;--paper:#f4f5ef;--white:#fffefa;--lime:#d8f46b;--orange:#ed7442;--muted:#6c786f;--line:#dce1d9;--night:#15231e}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}.shell{max-width:1240px;margin:auto;padding:0 28px}.brand{font-size:1.3rem;font-weight:900;letter-spacing:-.06em}.brand b{color:var(--orange)}nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.navlinks{display:flex;gap:28px;color:var(--muted);font-size:.9rem}.btn{border:0;border-radius:999px;background:var(--ink);color:white;padding:12px 18px;font-weight:800;cursor:pointer}header{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;padding:65px 0 45px}.eyebrow{color:var(--orange);font-size:.75rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}h1{font-size:clamp(3rem,7vw,6.2rem);letter-spacing:-.08em;line-height:.88;margin:16px 0 22px}.lede{max-width:580px;color:var(--muted);font-size:1.12rem;line-height:1.65}.hero-card{background:var(--night);color:white;border-radius:24px;padding:28px;box-shadow:0 18px 55px #17231f22}.hero-card h2{font-size:1.8rem;letter-spacing:-.05em;line-height:1.05;margin:42px 0 18px}.progress{height:10px;border-radius:9px;background:#31433a;overflow:hidden}.progress span{display:block;width:35%;height:100%;background:var(--lime)}.mini{font-size:.76rem;color:#aec0b5;margin-top:12px;display:block}.notice{background:var(--lime);padding:17px 20px;border-radius:15px;display:flex;justify-content:space-between;gap:20px;align-items:center;font-weight:700}.notice small{font-weight:500;color:#41544a}.section{padding:75px 0}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:28px}.sectionhead h2{font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.07em;line-height:.95;margin:0}.sectionhead p{max-width:360px;color:var(--muted);line-height:1.55}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:25px;min-height:210px}.role{font-size:.73rem;font-weight:900;letter-spacing:.1em;color:var(--orange)}.card h3{font-size:1.35rem;letter-spacing:-.05em;margin:38px 0 10px}.card p{color:var(--muted);line-height:1.55;font-size:.93rem}.roadmap{display:grid;grid-template-columns:.85fr 1.15fr;background:var(--white);border:1px solid var(--line);border-radius:24px;overflow:hidden}.roadmapIntro{padding:38px;background:var(--ink);color:white}.roadmapIntro h2{font-size:2.6rem;letter-spacing:-.07em;line-height:.95}.phase{padding:22px 31px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:20px}.phase:last-child{border:0}.phase b{display:block;font-size:1.05rem}.phase span{display:block;color:var(--muted);margin-top:6px;font-size:.9rem}.phase em{font-style:normal;color:var(--orange);font-weight:800;font-size:.8rem}.modal{position:fixed;inset:0;background:#0b1712aa;display:none;place-items:center;padding:20px}.modal.open{display:grid}.dialog{background:var(--white);width:min(650px,100%);border-radius:22px;padding:30px;box-shadow:0 22px 90px #0005}.dialog h2{letter-spacing:-.06em;margin:0 0 8px}.dialog p{color:var(--muted);line-height:1.55}.accountlist{display:grid;gap:9px;margin-top:18px}.account{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;align-items:center;justify-content:space-between;background:#fff}.account strong{display:block}.account small{color:var(--muted)}.badge{padding:5px 9px;border-radius:999px;background:#edf1ea;font-size:.75rem;font-weight:800}.prototype{margin-top:18px;background:#fff3e6;border-left:4px solid var(--orange);padding:12px 14px;border-radius:8px;font-size:.86rem;color:#704128}footer{padding:30px 0 50px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}@media(max-width:760px){.navlinks{display:none}header,.roadmap{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.sectionhead{display:block}.notice{align-items:flex-start;flex-direction:column}.shell{padding:0 17px}}
+</style>
 </head>
-<body>
-  <main class="wrap">
-    <nav>
-      <div class="brand"><i></i>northstar</div>
-      <div class="nav-links"><span>Strategy</span><span>Priorities</span><span>Roadmap</span></div>
-      <div class="pill">2026 Plan</div>
-    </nav>
-    <header>
-      <div>
-        <div class="eyebrow">Business planning, made actionable</div>
-        <h1>Make the next move your best one.</h1>
-        <p class="lede">A practical operating plan for aligning the team, choosing the work that matters, and building momentum quarter after quarter.</p>
-      </div>
-      <aside class="hero-card">
-        <small>Annual focus</small>
-        <h2>Build a business people choose.</h2>
-        <div class="bar"><span></span></div>
-        <small>72% of strategic initiatives mapped</small>
-      </aside>
-    </header>
-    <div class="metrics">
-      <div class="metric"><strong>03</strong><span>Company priorities</span></div>
-      <div class="metric"><strong>12</strong><span>Quarterly initiatives</span></div>
-      <div class="metric"><strong>48</strong><span>Measurable outcomes</span></div>
-    </div>
-
-    <section>
-      <div class="section-head">
-        <h2>Our strategic<br>anchors.</h2>
-        <p>Three clear choices keep the plan focused—so every team can move with confidence.</p>
-      </div>
-      <div class="grid">
-        <article class="card"><div class="num">01 / CUSTOMER</div><h3>Earn durable loyalty</h3><p>Make every interaction simpler, more useful, and worth coming back for.</p></article>
-        <article class="card"><div class="num">02 / PRODUCT</div><h3>Deliver obvious value</h3><p>Concentrate investment where it creates a meaningful customer advantage.</p></article>
-        <article class="card"><div class="num">03 / OPERATIONS</div><h3>Scale with intention</h3><p>Build a fast, resilient operating model that gives great work room to grow.</p></article>
-      </div>
-    </section>
-
-    <section>
-      <div class="roadmap">
-        <div class="roadmap-grid">
-          <div>
-            <div class="eyebrow" style="color:#45564d">90-day roadmap</div>
-            <h2 style="margin-top:16px">From ambition<br>to traction.</h2>
-          </div>
-          <div class="steps">
-            <div class="step">Align on the few big bets <span>Weeks 1–2</span></div>
-            <div class="step">Set owners and outcomes <span>Weeks 3–4</span></div>
-            <div class="step">Launch the first initiatives <span>Weeks 5–8</span></div>
-            <div class="step">Review, learn, and reset <span>Weeks 9–12</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer><span>Northstar Business Plan</span><span>Built for focus · 2026</span></footer>
-  </main>
-</body>
-</html>
+<body><main class="shell">
+<nav><div class="brand">guild<b>hall</b></div><div class="navlinks"><span>Roadmap</span><span>Team</span><span>Events</span></div><button class="btn" onclick="openPortal()">Staff sign in</button></nav>
+<header><div><div class="eyebrow">A tabletop community, built deliberately</div><h1>Build the hall before the walls.</h1><p class="lede">A shared operating plan for growing the community, proving demand, and opening a tabletop space people will return to every week.</p></div><aside class="hero-card"><div class="eyebrow" style="color:var(--lime)">Current mission</div><h2>Turn regular game nights into a real community.</h2><div class="progress"><span></span></div><span class="mini">Phase 1 · Community foundation</span></aside></header>
+<div class="notice"><div>Next milestone: <strong>25 regular players</strong> <small>before pursuing a lease</small></div><button class="btn" onclick="openPortal()">Open staff portal</button></div>
+<section class="section"><div class="sectionhead"><h2>A clear chain<br>of command.</h2><p>Simple roles prevent confusion now and scale into a storefront team later.</p></div><div class="cards"><article class="card"><div class="role">01 / LEADERSHIP</div><h3>Founders &amp; General Manager</h3><p>Set strategy, approve spending, assign roles, handle safety and final decisions.</p></article><article class="card"><div class="role">02 / TEAM LEADS</div><h3>Events, Retail &amp; Community Leads</h3><p>Own one area, coordinate volunteers, run checklists, and report progress upward.</p></article><article class="card"><div class="role">03 / STAFF</div><h3>Staff &amp; Volunteers</h3><p>See assigned shifts, event details, training, task lists, and internal updates.</p></article></div></section>
+<section class="section"><div class="sectionhead"><h2>The path to<br>a physical hall.</h2><p>Prove the community first. Rent small only after demand and operations are repeatable.</p></div><div class="roadmap"><div class="roadmapIntro"><div class="eyebrow" style="color:var(--lime)">Store roadmap</div><h2>Community first. Space second.</h2></div><div><div class="phase"><div><b>Phase 1 — Gather the guild</b><span>Launch Discord, find DMs, host recurring library/community-center nights.</span></div><em>0–6 mo</em></div><div class="phase"><div><b>Phase 2 — Prove the model</b><span>Build 50 regulars, test paid events, snacks, merchandise, and memberships.</span></div><em>6–18 mo</em></div><div class="phase"><div><b>Phase 3 — Rent the first space</b><span>1,000–2,500 sq ft; prioritize six tables, events, and a strong calendar.</span></div><em>18+ mo</em></div><div class="phase"><div><b>Phase 4 — Buy only when proven</b><span>Consider ownership after 2 profitable years, 100 recurring customers, and reserves.</span></div><em>Future</em></div></div></div></section>
+<footer>Guildhall planning workspace · Brand name is a working placeholder</footer>
+</main>
+<div id="portal" class="modal" role="dialog" aria-modal="true"><div class="dialog"><button class="btn" style="float:right;background:#e9ece7;color:var(--ink)" onclick="closePortal()">Close</button><div class="eyebrow">Staff portal · prototype</div><h2>Choose a demo account</h2><p>This shows the permissions model your real sign-in system will use.</p><div class="accountlist"><div class="account"><div><strong>Alex — Founder</strong><small>Full control: accounts, roles, roadmap, finances</small></div><span class="badge">Owner</span></div><div class="account"><div><strong>Jordan — Community Lead</strong><small>Events, volunteers, community calendar</small></div><span class="badge">Team Lead</span></div><div class="account"><div><strong>Sam — Event Staff</strong><small>Assigned shifts, tasks, event info</small></div><span class="badge">Staff</span></div></div><div class="prototype"><strong>Prototype only:</strong> this static GitHub Pages site cannot securely sign people in or save role changes. Real accounts need a backend such as Supabase or Firebase; then Owners can promote accounts to Staff or Team Lead from an admin panel.</div></div></div>
+<script>function openPortal(){document.getElementById('portal').classList.add('open')}function closePortal(){document.getElementById('portal').classList.remove('open')}</script>
+</body></html>
